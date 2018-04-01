@@ -1,0 +1,24 @@
+﻿  main.cpp
+c:\users\tfmenard\desktop\univ\mcgill_docs\mcgill_w18_lastsemesterbiatch\intro2cpp\a3\a3_vs_project\a3_vs_project\smartpointer.h(249): warning C4018: '<': signed/unsigned mismatch
+  c:\users\tfmenard\desktop\univ\mcgill_docs\mcgill_w18_lastsemesterbiatch\intro2cpp\a3\a3_vs_project\a3_vs_project\smartpointer.h(233): note: while compiling class template member function 'SmartPointer<int>::SmartPointer(T,::size_t)'
+          with
+          [
+              T=int
+          ]
+  c:\users\tfmenard\desktop\univ\mcgill_docs\mcgill_w18_lastsemesterbiatch\intro2cpp\a3\a3_vs_project\a3_vs_project\smartpointer.h(124): note: see reference to function template instantiation 'SmartPointer<int>::SmartPointer(T,::size_t)' being compiled
+          with
+          [
+              T=int
+          ]
+  c:\users\tfmenard\desktop\univ\mcgill_docs\mcgill_w18_lastsemesterbiatch\intro2cpp\a3\a3_vs_project\a3_vs_project\smartpointer.h(199): note: while compiling class template member function 'SmartPointer<int>::SmartPointer(T *,int)'
+          with
+          [
+              T=int
+          ]
+  c:\users\tfmenard\desktop\univ\mcgill_docs\mcgill_w18_lastsemesterbiatch\intro2cpp\a3\a3_vs_project\a3_vs_project\main.cpp(72): note: see reference to function template instantiation 'SmartPointer<int>::SmartPointer(T *,int)' being compiled
+          with
+          [
+              T=int
+          ]
+  c:\users\tfmenard\desktop\univ\mcgill_docs\mcgill_w18_lastsemesterbiatch\intro2cpp\a3\a3_vs_project\a3_vs_project\main.cpp(9): note: see reference to class template instantiation 'SmartPointer<int>' being compiled
+  A3_VS_Project.vcxproj -> C:\Users\Tfmenard\Desktop\Univ\McGill_Docs\McGill_W18_Lastsemesterbiatch\Intro2Cpp\A3\A3_VS_Project\Debug\A3_VS_Project.exe
