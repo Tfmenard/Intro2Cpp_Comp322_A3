@@ -1,9 +1,42 @@
 #pragma once
+/*
+SmartPointer Class.
+Author: Thomas Faribault-Menard
+Date: April 1st 2018
+Company: $tack Bundles Inc.
+
+How to use it:
+
+For single value smart pointers, use the constructors with only a single argument.
+For array smart pointers, user the constructors with 2 arguments.
+
+To get and set values, make sure to use the appropriate functions for arrays and single value smart pointers.
+If you mess up, the appropriate EXCEPTION will be thrown at your exceptional reading talent.
+
+The class supports operator overloading for the add(+), substract(-) and multiply(*) operators.
+For arrays, make sure to use arrays of the same dimension when using overlaoded operators.
+
+
+
+
+
+
+
+*/
+
+
+
+
 #include "NegativeNumberException.h"
 #include "ArrayOutOfBoundsException.h"
 #include "ArrayDimensionsMismatchException.h"
 
 using namespace std;
+
+//Exception objects used in member functions
+NegativeNumberException negativeNumException;
+ArrayOutOfBoundsException arrayOutOfBoundException;
+ArrayDimensionsMismatchException arrDimensionsMismatchException;
 
 template <typename T>
 class SmartPointer
@@ -33,15 +66,26 @@ public:
 
 	friend SmartPointer<T> operator+<T>(const SmartPointer<T>& a, const SmartPointer<T>& b);
 	friend SmartPointer<T> operator-<T>(const SmartPointer<T>& a, const SmartPointer<T>& b);
-	friend SmartPointer<T> operator*(const SmartPointer<T>& a, const SmartPointer<T>& b);
+	friend SmartPointer<T> operator*(const SmartPointer<T>& a, const SmartPointer<T>& b)
+	{
+		if (a.size != b.size)
+		{
+			throw arrDimensionsMismatchException;
+		}
+
+		size_t sizeT = a.size;
+		SmartPointer<T> *result = new SmartPointer<T>(0, sizeT);
+		result->size = a.size;
+		for (int i = 0; i < a.size; i++)
+		{
+			result->setValue(i, *(a.data + i) * (*(b.data + i)));
+		}
+		return *result;
+		
+	}
 
 
 };
-
-//Exception objects used in member functions
-NegativeNumberException negativeNumException;
-ArrayOutOfBoundsException arrayOutOfBoundException;
-ArrayDimensionsMismatchException arrDimensionsMismatchException;
 
 
 
@@ -151,20 +195,6 @@ SmartPointer<T> operator-(const SmartPointer<T>& a, const SmartPointer<T>& b)
 		//cout << *(b.data + i) << endl;
 		result->setValue(i, *(a.data + i) - *(b.data + i));
 	}
-	return *result;
-}
-
-
-template <typename T>
-SmartPointer<T> operator*(const SmartPointer<T>& a, const SmartPointer<T>& b)
-{
-	size_t sizeT = a.size;
-	SmartPointer<T> *result = new SmartPointer<T>(0, sizeT);
-	result->size = a.size;
-
-	cout << *(a.data) << endl;
-	cout << *(b.data) << endl;
-	result->setValue(*(a.data) * *(b.data));
 	return *result;
 }
 //Question 5 -> OPERATOR OVERLOADING - END

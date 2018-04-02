@@ -4,6 +4,9 @@
 
 int main()
 {
+	cout << "-- Question 1 --" << endl;
+	cout << "Answer to Question 1: There 3 kinds of smart pointers, shared pointers, unique pointers and weak pointers." << endl;
+	cout << "Shared Pointers " << endl;
 	
 	cout << "--- Question 2 ---" << endl;
 	SmartPointer<int> sPointer1;
@@ -61,8 +64,9 @@ int main()
 	SmartPointer<float> sPointerFloat4 = sPointerFloat2 - sPointerFloat1;
 	cout << "sPointerFloat4 value -> 2.5 - 1.5 = " << sPointerFloat4.getValue() << endl << endl;
 
-	//SmartPointer<float> sPointerFloat5 = sPointerFloat1 * sPointerFloat2;
-	//cout << "sPointerFloat3 value = " << sPointerFloat5.getValue() << endl;
+	cout << "operator*" << endl;
+	SmartPointer<float> sPointerFloat5 = sPointerFloat1 * sPointerFloat2;
+	cout << "sPointerFloat3 value = " << sPointerFloat5.getValue() << endl;
 
 	cout << "--- Question 6 ---" << endl;
 
@@ -111,6 +115,17 @@ int main()
 	try
 	{
 		SmartPointer<int> sPointerArray_valid_op = sPointerArray3 - sPointerArray2;
+		sPointerArray_valid_op.displayContent();
+	}
+	catch (exception &e)
+	{
+		cout << e.what() << endl;
+	}
+
+	cout << "Multiplying array with another array" << endl;
+	try
+	{
+		SmartPointer<int> sPointerArray_valid_op = sPointerArray3 * sPointerArray2;
 		sPointerArray_valid_op.displayContent();
 	}
 	catch (exception &e)
